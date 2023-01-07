@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Light Theme Mode*/
+body[data-theme="light"]{ /*Definindo uma classe de atributos com o (data-) ao body*/
+    --color-1: rgb(196, 220, 241); /*O (--(nome-da-variável)) significa que podemos busca-lo depois com a palavra-chave (var())*/
+    --color-2: white;
+    --color-3: rgb(200, 200, 200);
+    --color-4: rgb(80, 82, 110);
+}
+
+/*Dark Theme Mode*/
+body[data-theme="dark"]{
+    --color-1: #1e1f26;
+    --color-2: #292c33;
+    --color-3: rgb(39, 40, 42);
+    --color-4: rgb(186, 186, 202);
+}
+
+body{
+    font-family: "Montserrat";
+    background-color: var(--color-1);
+    transition: 0.5s;
+}
+
+
+.theme-swither{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 40vh;
+    background-color: var(--color-2);
+    border-radius: 5px;
+    min-width: 200px;
+    min-height: 100px;
+    width: 200px;
+}
+
+input{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+input:checked + label{
+    background-color: rgb(25, 26, 37);
+    border: 2px outset orange;
+}
+
+input:checked + label::after{
+    background-color: orange;
+    left: 75%;
+    transition: 0.5s;
+}
+
+.darkmode{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 75%;
+    top: 10%;
+}
+
+.lightmode{
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   left: 6%;
+   top: 10%;
+
+}
+
+label{
+    position: relative;
+    display: block;
+    text-indent: -9999px;
+    height: 40px;
+    width: 150px;
+    background-color: aliceblue;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 2px outset black;
+    transition: 0.5s;
+}
+
+label::after{
+    position: absolute;
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: black;
+    top: 46%;
+    left: 5%;
+    transform: translateY(-50%);
+    transition: 0.5s;
+}
